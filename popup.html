@@ -2,13 +2,30 @@
 
 <html>
 	<head>
-		
-		
+		<style type="text/css">
+			.container {
+				vertical-align: middle;
+				padding-left: 50px;
+				padding-right: 50px;
+				margin: 10px;
+			}
+			body{
+				background: black;
+				color: whitesmoke;
+				font-weight: 200;
+				font-size: 1em;
+			}
+		</style>
 	</head>
 	<body>
-		<button id="display-url">Display URL</button>
-		<h1 id="text">pre-text</h1>
-
+		<div class="container"><button id="display-url">Display URL</button></div>
+		<div><input class="container" type="checkbox">Show Highlight</input></div>
+		<div>
+			<div><input class="container" name="format" value="highlight" type="radio">Highlight</input></div>
+			<div><input class="container" name="format" value="strike-through" type="radio">Strike Through</input></div>
+		</div>
+		<p class="container" id="text">pre-text</p>
+		
 		<script src="script.js"></script>
 	</body>
 </html>
