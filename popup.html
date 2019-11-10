@@ -3,28 +3,42 @@
 <html>
 	<head>
 		<style type="text/css">
-			.container {
-				vertical-align: middle;
-				padding-left: 50px;
-				padding-right: 50px;
-				margin: 10px;
-			}
 			body{
+				display: block;
+				text-align: center;
+				width: 200px;
+				min-height: 200px;
 				background: black;
 				color: whitesmoke;
-				font-weight: 200;
+				font-weight: 300;
 				font-size: 1em;
 			}
+			.highlight-box {
+				margin: 20px auto;
+			}
+			.button {
+				background-color: white;
+				border: none;
+				margin-top: 30px;
+				padding: 20px 20px;
+				font-size: 1em;
+				font-weight: bold;
+			}
+
 		</style>
 	</head>
 	<body>
-		<div class="container"><button id="display-url">Display URL</button></div>
-		<div><input class="container" type="checkbox">Show Highlight</input></div>
+		<button id="display-url" class="button">Display URL</button>
+		<div><input type="checkbox" class="highlight-box">Show Highlight</input></div>
 		<div>
-			<div><input class="container" name="format" value="highlight" type="radio">Highlight</input></div>
-			<div><input class="container" name="format" value="strike-through" type="radio">Strike Through</input></div>
+			<div><label style="font-weight: bold">Format Type</label></div>
+			<select name="format">
+				<option name="format" value="highlight">Highlight</input>
+				<option name="format" value="strike-through" >Strike Through</input>
+			</select>
+			
 		</div>
-		<p class="container" id="text">pre-text</p>
+		<p id="text">me</p>
 		
 		<script src="script.js"></script>
 	</body>
