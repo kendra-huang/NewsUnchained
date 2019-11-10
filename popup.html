@@ -4,32 +4,49 @@
 	<head>
 		<style type="text/css">
 			body{
+				padding: 0px 0px;
+				margin: 0px 0px;
 				display: block;
 				text-align: center;
 				width: 200px;
 				min-height: 200px;
-				background: black;
-				color: whitesmoke;
-				font-weight: 300;
+				background: white;
+				color: black;
 				font-size: 1em;
 			}
 			.highlight-box {
-				margin: 20px auto;
+				padding: 10px 10px;
+				width: 25px;
+				height: 25px;
+			}
+			.logo {
+				padding: 10px 10px;
+			}
+			#show {
+				background-color: #eee;
 			}
 			.button {
-				background-color: white;
+				transition-duration: 0.2s;
+				background-color: #0cab63;
+				border-radius: 4px;
+				color: #e6f7ef;
 				border: none;
-				margin-top: 30px;
-				padding: 20px 20px;
-				font-size: 1em;
+				margin-top: 20px;
+				padding: 10px 20px;
 				font-weight: bold;
+			}
+			.button:hover {
+				background-color: #0a633a;
+				color: white;
 			}
 
 		</style>
 	</head>
 	<body>
-		<button id="display-url" class="button">Display URL</button>
-		<div><input type="checkbox" class="highlight-box">Show Highlight</input></div>
+		<img class="logo" src="header-icon.jpg"></img>
+		<div>
+			<label class="highlight-box"><input type="checkbox" id="show"></input>Show Highlight</label>
+		</div>
 		<div>
 			<div><label style="font-weight: bold">Format Type</label></div>
 			<select name="format">
@@ -38,6 +55,7 @@
 			</select>
 			
 		</div>
+		<button id="display-url" class="button">display</button>
 		<p id="text">me</p>
 		
 		<script src="script.js"></script>
