@@ -11,6 +11,20 @@ Use the package [pip] to install: Google Cloud Language,
                                   
 Use Google Chrome extension to install News Unchained
 
+## Justification of Prediction Model
+Our subjectivity detection algorithm uses two main assertions of natural language: 
+
+  1. A more polarized sentiment value increases the probability that the selected sentence is subjective (Palshikar, 2016). 
+
+  2. The number of adjectives in the sentence has a positive correlation with the subjectivity of said sentence (Wiebe et al., 1999), (Hatzivassiloglou and Wiebe, 2000).
+
+The first is an established theory that most current subjectivity classification software is based on (Liu, 2010). To increase accuracy and provide another quantifiable measure, we have also included the ratio of adjectives to the total number of words in a sentence as a determinant. Utilizing the Google Cloud - Natural Language API, we are able to leverage these theories in analyzing text for subjectivity/objectivity. Google’s API allows us to analyze the sentiment and verb frequency sentence by sentence, creating a statistical representation of the sentence that allows us to predict subjectivity. If given more time, we would base the sentiment and verb to word count ratio scores on control texts, increasing the accuracy of our model.
+
+The Python script has the ability to analyze multiple text files in sequence, allowing for the automated analysis of many/large texts. File name and location must be updated in the source code. 
+
+Future work will include testing to increase prediction accuracy, creating independent models to reduce bias and increase efficiency, and research into new predictive factors, such as tense or presence of strongly subjective words. 
+
+
 ## Usage
 ---
 Format Type: Strike Through
