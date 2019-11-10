@@ -22,39 +22,37 @@
  * 
  */
 
- var str = "";
-
 document.getElementById("display-url").addEventListener('click', () => {
     chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function(tabs){
         document.getElementById("text").innerHTML = tabs[0].url;
     });
     console.log("Popup DOM fully loaded and parsed");
 
-    function modifyDOM() {
+    function getDOM() {
         return document.body.innerHTML;
     }
+    function modifyDOM(newHTML) {
+        document.body.innerHTML = newHTML;
+    }
     //We have permission to access the activeTab, so we can call chrome.tabs.executeScript:
-    chrome.tabs.executeScript({ code: '(' + modifyDOM + ')();' }, (results) => {
+    chrome.tabs.executeScript({ code: '(' + getDOM + ')();' }, (results) => {
         //innerHTML of body logged
         // console.log stored as variable
-        str = results[0];
-        console.log(str);
+        var str = results[0];
+        parseText(str);
+        //chrome.tabs.executeScript({ code: modifyDOM(str)+';' });
     });
 });
 
 function parseText(str){
-    
-    var arr = ["hello", "hi", "banana"];
-    var arrVal = "";
-    var str = "";
-    for (var i = 0; arr.length(); i++)
+    console.log("bananaaaa");
+    var arr = ["Blogger", "Photos", "Keep", "HTML", "Skip", "Literal", "Baker"];
+    for (var i = 0; i < arr.length; i++)
     {
-        arrVal = arr[i];
-        text = document.write("<p>Strike: " + txt.strike() + "</p>");
-        str.replace(str, text);
+        var re = new RegExp(arr[i],'g');
+        str = str.replace(re, arr[i].strike());
     }
+    document.write(str);
     
     // arrayBiased = xmlDoc.getElementsByTagName('sentence')[0].childNodes[0].nodeValue;
-
-
 };

@@ -45,17 +45,20 @@
 	<body>
 		<img class="logo" src="header-icon.jpg"></img>
 		<div>
+			<div>
 			<label class="highlight-box"><input type="checkbox" id="show"></input>Show Highlight</label>
+			</div>
+			<div>
+				<div><label style="font-weight: bold">Format Type</label></div>
+				<select name="format">
+					<option name="format" value="highlight">Highlight</input>
+					<option name="format" value="strike-through" >Strike Through</input>
+				</select>
+				
+			</div>
+			<button id="display-url" class="button">display</button>
 		</div>
-		<div>
-			<div><label style="font-weight: bold">Format Type</label></div>
-			<select name="format">
-				<option name="format" value="highlight">Highlight</input>
-				<option name="format" value="strike-through" >Strike Through</input>
-			</select>
-			
-		</div>
-		<button id="display-url" class="button">display</button>
+		
 		<p id="text">me</p>
 		
 		<script src="script.js"></script>
