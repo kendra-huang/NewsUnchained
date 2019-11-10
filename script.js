@@ -1,6 +1,5 @@
 /**
  * Javascript ~~~
- *
  */
 
 var arr = ["trump", "racist", "america", "african", "money", "businesses"];
