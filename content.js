@@ -1,16 +1,12 @@
-
-/*
-
-window.onload = function(){
-    var arr = ["Syntax","Chrome","Blogger", "Photos", "Keep", "HTML", "Skip", "Literal"];
-    for (var i = 0; i < arr.length; i++)
-    {
-        var re = new RegExp(arr[i],'g');
-        this.document.body.innerHTML = this.document.body.innerHTML.replace(re, arr[i].strike());
-    }
-};
+/**
+ * Content file can access the DOM directly,
+ * and can communicate to the scipt file through
+ * message listeners, which send and receieve packaged data
+ */
+chrome.runtime.onMessage.addListener( function(request, sender, sendResponse) {
+    document.body.innerHTML = request.body;
+    sendResponse({result: "success"});
+});
 
 
 
-
-*/

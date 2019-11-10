@@ -3,13 +3,11 @@
  *
  */
 
-var arr = ["http" ,"Syntax", "Examples", "Photos", "Keep", "HTML", "Skip", "Literal", "Baker"];
+chrome.tabs.executeScript(null, {file: "content.js"});
 
-document.getElementById("display-url").addEventListener('click', () => {
-    chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function(tabs){
-        document.getElementById("text").innerHTML = current_url = tabs[0].url;
-    });
-  
+var arr = ["Syntax", "Google", "the growing smart home and office markets", "Premium", "Skip", "businesses"];
+
+document.getElementById("display-url").addEventListener('click', function(tabs) {
     function getDOM() {
         return document.body.innerHTML;
     }
@@ -21,19 +19,29 @@ document.getElementById("display-url").addEventListener('click', () => {
         //innerHTML of body logged
         // console.log stored as variable
         var str = results[0];
-        var web = "data:text/html," + encodeURIComponent(selected == '1' ? parseText(str) : highlightSearchTerms(str, "", ""));
-        chrome.tabs.create({ url: web });
+        var new_body = selected == '1' ? parseText(str) : highlightSearchTerms(str);// the new innerHTML
+        
+        console.log(new_body);
+        //func to update the contents of the page to be 
+        chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {body: new_body}, function(response) {
+                console.log(response.result);
+            });
+        });
     });
+
+    
+    
 });
 
-/*
+/** 
  * Strikeout text function
  */
 function parseText(str){
     for (var i = 0; i < arr.length; i++)
     {
-        var re = new RegExp(arr[i].toLowerCase(),'g');
-        str = str.toLowerCase().replace(re, arr[i].strike());
+        var re = new RegExp(arr[i],'g');
+        str = str.replace(re, arr[i].strike());
     }
     return str;
 };
