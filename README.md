@@ -26,7 +26,7 @@ Pull requests are welcome. For major changes, please address the primary develop
 
 ## Acknowledgments
 ---
-Special thanks to developers Nicholas Baker, Ethan Benavides, Bryant Hou, and Kendra Huong.
+Special thanks to developers Nicholas Baker, Ethan Benavides, Bryant Hou, and Kendra Huang.
 
 ## References
 ---
