@@ -3,8 +3,6 @@
  *
  */
 
-chrome.tabs.executeScript(null, {file: "content.js"});
-
 var arr = ["Syntax", "Google", "the growing smart home and office markets", "Premium", "Skip", "businesses"];
 
 document.getElementById("display-url").addEventListener('click', function(tabs) {
