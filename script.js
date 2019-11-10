@@ -5,27 +5,24 @@
 
 var arr = ["http" ,"Syntax", "Examples", "Photos", "Keep", "HTML", "Skip", "Literal", "Baker"];
 
-
-
 document.getElementById("display-url").addEventListener('click', () => {
     chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function(tabs){
         document.getElementById("text").innerHTML = current_url = tabs[0].url;
     });
-    console.log("Popup DOM fully loaded and parsed");
-
+  
     function getDOM() {
         return document.body.innerHTML;
     }
+    var e = document.getElementById("option-type");
+    var selected = e.options[e.selectedIndex].value;
     //We have permission to access the activeTab, so we can call chrome.tabs.executeScript:
     chrome.tabs.executeScript({ code: '(' + getDOM + ')();' }, (results) => {
+        console.log("Popup DOM fully loaded and parsed");
         //innerHTML of body logged
-        // console.log stored as variable     parseText(str)
+        // console.log stored as variable
         var str = results[0];
-        chrome.tabs.create({ url: "data:text/html,"  +
-         encodeURIComponent(highlightSearchTerms(str, "", ""))});
-
-
-        //chrome.tabs.executeScript({ code: modifyDOM(str)+';' });
+        var web = "data:text/html," + encodeURIComponent(selected == '1' ? parseText(str) : highlightSearchTerms(str, "", ""));
+        chrome.tabs.create({ url: web });
     });
 });
 

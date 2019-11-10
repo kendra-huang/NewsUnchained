@@ -1,3 +1,6 @@
+
+/*
+
 window.onload = function(){
     var arr = ["Syntax","Chrome","Blogger", "Photos", "Keep", "HTML", "Skip", "Literal"];
     for (var i = 0; i < arr.length; i++)
@@ -6,9 +9,6 @@ window.onload = function(){
         this.document.body.innerHTML = this.document.body.innerHTML.replace(re, arr[i].strike());
     }
 };
-/*
-
-
 
 
 
