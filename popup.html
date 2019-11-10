@@ -3,7 +3,8 @@
 <html>
 	<head>
 		<style type="text/css">
-			body{
+			body
+            {
 				padding: 0px 0px;
 				margin: 0px 0px;
 				display: block;
@@ -14,53 +15,75 @@
 				color: black;
 				font-size: 1em;
 			}
-			.highlight-box {
+			
+            .logo
+            {
 				padding: 10px 10px;
-				width: 25px;
-				height: 25px;
-			}
-			.logo {
-				padding: 10px 10px;
-			}
-			#show {
+                height: 32px;
+                width: 169px;
+            }
+			
+            #show
+            {
 				background-color: #eee;
 			}
-			.button {
+			
+            .button
+            {
 				transition-duration: 0.2s;
-				background-color: #0cab63;
+				background-color: #15c39a;
 				border-radius: 4px;
-				color: #e6f7ef;
+				color: white;
 				border: none;
 				margin-top: 20px;
 				padding: 10px 20px;
 				font-weight: bold;
 			}
-			.button:hover {
+			
+            .button:hover
+            {
 				background-color: #0a633a;
 			}
-			
 		</style>
-	</head>
-	<body>
-		<img class="logo" src="header-icon.jpg"></img>
-		<div>
-			<div>
-			<label class="highlight-box"><input type="checkbox" id="show"></input>Show Highlight</label>
-			</div>
-			<div>
-				<div><label style="font-weight: bold">Format Type</label></div>
-				<select name="format">
-					<option name="format" value="highlight">Highlight</input>
-					<option name="format" value="strike-through" >Strike Through</input>
-				</select>
-				
-			</div>
-			<button id="display-url" class="button">display</button>
-			<button id="t" class="button"><table>teeer</table></button>
-		</div>
-		
-		<p id="text">me</p>
-		
-		<script src="script.js"></script>
-	</body>
+    </head>
+	
+    <body>
+        <img class="logo" src="header-icon.png">
+
+        <div>
+            <p style="font-size: 0.75em; margin-bottom: 10px; margin-top: -5px; padding: 10px; background-color: #FF827B; color: white;">
+                <i> News Unchained </i> provides an efficient way to provide users with an objective experience when reading an article of text.
+            </p>
+        </div>
+
+        <div>
+            <div>
+                <label style="font-weight: bold">
+                    Format Type
+                </label>
+            </div>
+            <select name="format"; id="option-type;" style="font-size: 0.8em;">
+                <option name="format" value="highlight">
+                    Strike Through
+                </option>
+                <option name="format" value="strike-through">
+                    Highlight
+                </option>
+            </select>
+
+        </div>
+
+        <button id="display-url" class="button"; style="margin-bottom: 15px;">
+            display tab
+        </button>
+
+        <!--
+        <p id="text";>
+            News Unchained
+        </p>
+        -->
+
+        <script src="script.js"></script>
+    </body>
+
 </html>
