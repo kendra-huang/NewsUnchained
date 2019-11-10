@@ -3,16 +3,20 @@
  *
  */
 
-var arr = ["Syntax", "Google", "the growing smart home and office markets", "Premium", "Skip", "businesses"];
+var arr = ["trump", "racist", "america", "african", "money", "businesses"];
 
-document.getElementById("display-url").addEventListener('click', function(tabs) {
-    function getDOM() {
+document.getElementById("display-url").addEventListener('click', function (tabs)
+{
+    function getDOM()
+    {
         return document.body.innerHTML;
     }
     var e = document.getElementById("option-type");
     var selected = e.options[e.selectedIndex].value;
+
     //We have permission to access the activeTab, so we can call chrome.tabs.executeScript:
-    chrome.tabs.executeScript({ code: '(' + getDOM + ')();' }, (results) => {
+    chrome.tabs.executeScript({ code: '(' + getDOM + ')();' }, (results) =>
+    {
         console.log("Popup DOM fully loaded and parsed");
         //innerHTML of body logged
         // console.log stored as variable
@@ -21,25 +25,26 @@ document.getElementById("display-url").addEventListener('click', function(tabs) 
         
         console.log(new_body);
         //func to update the contents of the page to be 
-        chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function(tabs) {
-            chrome.tabs.sendMessage(tabs[0].id, {body: new_body}, function(response) {
+        chrome.tabs.query({ 'active': true, 'lastFocusedWindow': true }, function (tabs)
+        {
+            chrome.tabs.sendMessage(tabs[0].id, { body: new_body }, function (response)
+            {
                 console.log(response.result);
             });
         });
     });
-
-    
-    
+        
 });
 
 /** 
  * Strikeout text function
  */
-function parseText(str){
+function parseText(str)
+{
     for (var i = 0; i < arr.length; i++)
     {
-        var re = new RegExp(arr[i],'g');
-        str = str.replace(re, arr[i].strike());
+        var re = new RegExp('('+arr[i]+')','gi');
+        str = str.replace(re, "$1".strike());
     }
     return str;
 };
@@ -54,10 +59,11 @@ function parseText(str){
 function doHighlight(str, searchTerm, highlightStartTag, highlightEndTag)
 {
   // the highlightStartTag and highlightEndTag parameters are optional
-  if ((!highlightStartTag) || (!highlightEndTag)) {
-    highlightStartTag = "<font style='color:blue; background-color:yellow;'>";
-    highlightEndTag = "</font>";
-  }
+    if ((!highlightStartTag) || (!highlightEndTag))
+    {
+        highlightStartTag = "<font style='color:blue; background-color:yellow;'>";
+        highlightEndTag = "</font>";
+    }
 
   // find all occurences of the search term in the given text,
   // and add some "highlight" tags to them (we're not using a
@@ -71,24 +77,31 @@ function doHighlight(str, searchTerm, highlightStartTag, highlightEndTag)
 
   lcSearchTerm = searchTerm.toLowerCase();
   lcstr = str.toLowerCase();
-  while (str.length > 0) {
-    i = lcstr.indexOf(lcSearchTerm, i+1);
-    if (i < 0) {
-      newText += str;
-      str = "";
-    } else {
-      // skip anything inside an HTML tag
-      if (str.lastIndexOf(">", i) >= str.lastIndexOf("<", i)) {
-          // skip anything inside a <script> block
-        if (lcstr.lastIndexOf("/script>", i) >= lcstr.lastIndexOf("<script", i)) {
-            newText += str.substring(0, i) + highlightStartTag + str.substr(i, searchTerm.length) + highlightEndTag;
-            str = str.substr(i + searchTerm.length);
-            lcstr = str.toLowerCase();
-            i = -1;
+
+    while (str.length > 0)
+    {
+        i = lcstr.indexOf(lcSearchTerm, i+1);
+        if (i < 0)
+        {
+          newText += str;
+            str = "";
         }
-      }
+        else
+        {
+            // skip anything inside an HTML tag
+            if (str.lastIndexOf(">", i) >= str.lastIndexOf("<", i))
+            {
+                // skip anything inside a <script> block
+                if (lcstr.lastIndexOf("/script>", i) >= lcstr.lastIndexOf("<script", i))
+                {
+                    newText += str.substring(0, i) + highlightStartTag + str.substr(i, searchTerm.length) + highlightEndTag;
+                    str = str.substr(i + searchTerm.length);
+                    lcstr = str.toLowerCase();
+                    i = -1;
+                }
+            }
+        }
     }
-  }
   return newText;
 }
 
@@ -101,8 +114,9 @@ function doHighlight(str, searchTerm, highlightStartTag, highlightEndTag)
  */
 function highlightSearchTerms(str, highlightStartTag, highlightEndTag)
 {
-    for (var i = 0; i < arr.length; i++) {
+    for (var i = 0; i < arr.length; i++)
+    {
       str = doHighlight(str, arr[i], highlightStartTag, highlightEndTag);
     }
-  return str;
+    return str;
 }
