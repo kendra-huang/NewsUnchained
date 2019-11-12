@@ -2,6 +2,10 @@
 
 News Unchained is a Google Chrome extension that uses Natural Language Processing (NLP) to determine levels of sentiment in a body of text. By understanding the levels of sentiment applied in a given text and using knowledge from research, portions of text can be omitted from a web domain activating the elimination of bias. With more objectivity, the reader can formulate opinions for themselves without being chained to subjectivity.
 
+**HackUTD VI 2019**
+
+*Developed by: Nick Baker, Ethan Benavides, Bryant Hou, Kendra Huang*
+
 ## Installation
 ---
 Use the package [pip] to install: Google Cloud Language,
